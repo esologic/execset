@@ -1,6 +1,3 @@
-from code.library_python.logger import logger
-
-
 class Element(object):
     pass
 
@@ -42,12 +39,7 @@ class SetOfElements(object):
     # add incoming set to the end of this map set. The new elements will be AFTER the existing ones
     def append_with_set(self, incoming_element_set):
         new_element_list = incoming_element_set.get_element_list()
-
-        logger.info("Appending with set, current count [" + str(len(self.element_list)) + "] incoming length [" + str(len(new_element_list)) + "]")
-
         self.enqueue_elements(new_element_list)
-
-        logger.info("Set appended, new count [" + str(len(self.element_list)) + "]")
 
     # return the entire list of elements stored in this set of elements
     def get_element_list(self):
@@ -89,7 +81,6 @@ class SetOfElements(object):
             return True
 
         except IndexError as e:
-            logger.info("The element could not be replaced")
             return False
 
     # gets a chunk of elements out of the list based on the two locations given
@@ -118,21 +109,11 @@ class SetOfElements(object):
 
         return out_set
 
-    def print_set(self):
-
-        out = "["
-        for element in self.element_list:
-            out += str(element) + ", "
-        out += "]"
-
-        logger.info("" + out)
-
 
 class PriorityElement(Element):
 
     def __init__(self, priority):
         self.priority = priority
-
 
 class PrioritySetOfElements(SetOfElements):
 
@@ -158,5 +139,3 @@ class PrioritySetOfElements(SetOfElements):
         elements_after_insert = self.element_list[insert_location:]
 
         self.element_list = elements_prior_to + [incoming_element] + elements_after_insert
-
-
