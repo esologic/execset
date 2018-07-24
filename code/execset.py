@@ -115,6 +115,7 @@ class PriorityElement(Element):
     def __init__(self, priority):
         self.priority = priority
 
+
 class PrioritySetOfElements(SetOfElements):
 
     def __init__(self):
@@ -125,7 +126,6 @@ class PrioritySetOfElements(SetOfElements):
         new_priority = incoming_element.priority
 
         insert_location = len(self.element_list)
-        element_number = 0
 
         for element_number, element in enumerate(self.element_list):
 
