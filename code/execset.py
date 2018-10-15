@@ -91,12 +91,12 @@ class SetOfElements(object):
         try:
             self.element_list[start_location]
         except IndexError as e:
-            raise ValueError("No element at chunk starting location")
+            raise ValueError("No element at chunk starting location [" + str(e) + "]" )
 
         try:
             self.element_list[end_location]
         except IndexError as e:
-            raise ValueError("No element at chunk ending location")
+            raise ValueError("No element at chunk ending location [" + str(e) + "]" )
 
         elements = self.element_list[start_location: end_location]
 
